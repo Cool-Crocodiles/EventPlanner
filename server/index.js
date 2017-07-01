@@ -95,12 +95,11 @@ app.post('/retrieve', function(req, res) {
 
 app.post('/delete', function(req, res) {
   console.log("********* /delete : ", req.body);
-  helper.deleteEvent(req, res); 
+  helper.deleteEvent(req, res);
 
 });
 
-
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log(`listening on port ${port}!`);
 });
-

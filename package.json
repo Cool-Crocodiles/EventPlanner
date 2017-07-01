@@ -7,7 +7,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d",
     "postinstall": "webpack -p",
     "start": "node server/index.js"
   },

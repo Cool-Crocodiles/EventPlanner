@@ -7,8 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d",
-    "postinstall": "webpack -p",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
     "start": "node server/index.js"
   },
   "author": "Beth Johnson",

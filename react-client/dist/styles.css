@@ -1,0 +1,259 @@
+table.mainInput {
+  margin-left:auto; 
+  margin-right:auto; 
+}
+tr, td {
+  text-align: left;
+  padding: 5px;
+}
+#main {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 50;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+.inputBox {
+  color: black;
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+}
+.eventCatagory{
+  margin-left: 20px;
+  margin-top: 40px;
+  font-size: 18px;
+  padding: 11px;
+}
+#submitButton{
+  margin-top: 30px;
+  margin-bottom: 200px;
+} 
+#title {
+  margin-top: 150px;
+  font-family: helvetica;
+  font-weight: bold;
+  color: yellow;
+  font-style: italic;
+  text-align: center;
+}
+#bar {
+  background-color: #FEDD08;
+  color: black;
+}
+#bar2 {
+  background-color: #FEDD08;
+  color: black;
+}
+.submitInfo {
+  margin-left: 60px;
+} 
+.basicInfo {
+  width: 500px;
+}
+#myEventClick { 
+  margin-left: 200px;
+  font-size: 20px;
+}
+
+#length{
+  font-size:15px;
+  color: #D91463;
+}
+
+#events{
+  background-color: #C2C2C3;
+  color: black;
+}
+.allEvents{
+  text-align: left;
+  padding: 10px;
+}
+#mainButton{
+  transition-property: width;
+  transition-duration: 5s;
+  transition-delay: 5s;
+}
+
+.eachEvent{
+  display:inline-block;
+  margin-left:40px;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+/*      .eventHandler {
+  color:black;
+  width: 250px;
+  height:350px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: white;
+}
+*/
+
+
+#eachEventComponent {
+  overflow: hidden;
+  margin-left: 30px;
+}
+
+.eventImages {
+  width: 250px;
+  /*border: 1px solid black;*/
+  /*height: 250px;*/
+}
+.eventSmallDes{
+  /*width: 250px;*/
+  background-color: white;
+  height: 130px;
+  /*border: 1px solid black;*/
+  padding:10px;
+}
+
+.eventTitle{
+  /*color:black;*/
+  color: #D91463;
+  margin-bottom: 10px;
+}
+/*.eventTitle:hover{
+  color: #D91463;
+}*/
+.eventVenueName{
+  margin-top: 0px
+  color: grey;
+  font-size: 13px;
+}
+#resultTitle{
+  font-weight: bold;
+}
+.eventImages img{
+  width: 100%;
+  height: 80%;
+}
+.eventStartTime{
+  color: #656565;
+}
+
+#logo {
+  font-weight: bold;   
+}
+#descriptionPage{
+  background-color: white;
+  color: black;
+}
+
+#wrapUpTwoSection{
+  overflow: hidden;
+}
+#eventDescriptionInfoText{
+  width: 700px;
+  float:left;
+  text-align: left;
+  margin-left: 50px;
+  padding: 15px; 
+}
+#addMyListSection {
+  float:left;
+  margin-left: 30px;
+}
+.selectedData{
+  padding: 11px;
+}
+#eventImage{
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+#desTitle{
+  font-weight: bold;
+  color:black;
+}
+
+#map{
+  margin-bottom: 60px;
+}
+
+#addMylistButton{
+  padding: 15px;
+  background-color: #D91463;
+  color: white;
+  margin-left: 30px;
+  -webkit-transition:all .35s;
+  -moz-transition:all .35s;
+  transition:all .35s;
+}
+
+#addMylistButton:hover {
+  background-color: black;
+}
+
+#deleteButton{
+  padding: 15px;
+  background-color: black;
+  color: white;
+  -webkit-transition:all .35s;
+  -moz-transition:all .35s;
+  transition:all .35s;
+}
+
+#deleteButton:hover {
+  background-color: #D91463;
+}
+
+#myEventsList{
+  background-color: #C2C2C3;
+  color: black;
+}
+
+#myEventListUserNameDiv{
+  background-color: #FEDD08;
+}
+
+#myEventUserName{
+  padding: 20px;
+  font-weight: bold;
+  color: black;
+  margin-left: 50px;
+  text-align: left;
+}
+
+.myEventsListInfo {
+  float: left;
+  margin-left: 40px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  /*border: 3px bold black;*/
+  border-radius: 10px;
+  background-color: white;
+}
+
+.myEventListDeleteButtonDiv{
+  /*border: 3px solid black;*/
+  margin-top: 50px;
+  margin-left: 40px;
+  float: left;
+}
+
+.myEventList{
+  width: 800px;
+  padding :15px;
+  text-align: left;
+}
+
+#myEventSavedTitle{
+  font-weight: bold;
+  color: #D91463;
+  margin-bottom: 20px;
+}
+
+.emptyEvents{
+  height: 600px;
+  text-align: left;
+  padding : 60px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0px;
+}

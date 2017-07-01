@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -d --watch",
+    "dev": "webpack -d",
     "postinstall": "webpack -p",
     "start": "node server/index.js"
   },

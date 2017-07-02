@@ -3,7 +3,6 @@ module.exports = {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Marcus_Thames_Tigers_2007.jpg/1200px-Marcus_Thames_Tigers_2007.jpg", 
             "http://static3.businessinsider.com/image/583429eadd08952b7e8b481d-480/american-football-touchdown-tackle-fight-sports.jpg",
             "https://www.greatschools.org/gk/wp-content/uploads/2016/03/Dangerous-sports-girls-750x325.jpg",
-            "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwj8tf3khevUAhXLrFQKHRf7B0UQjBwIBA&url=http%3A%2F%2Fwww.lpu.in%2Fcampus_life%2Fimages%2Fsports%2Ftitle%2Fimg3.jpg&psig=AFQjCNGgKYluEkanzfogAvoDRxOB5oSsvw&ust=1499092895083224",
             "https://www.womenssportsfoundation.org/wp-content/uploads/2016/08/gettyimages-487651460_success-stories-herotile.jpg",
             "http://thebridge.fit/wp-content/uploads/sites/2/2015/10/ACL-Return-to-Sport-530x280.jpg",
             "https://sports.cbsimg.net//images/sportsline/articles/L_article_TBrady_01_23.jpg",

@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(process.env.MONGODB_URI, function(error) {
+  if (error) {
+    console.log(error);
+  }
+});
 
 var db = mongoose.connection;
 
@@ -12,7 +16,7 @@ db.once('open', function() {
 });
 
 // var eventSchema = mongoose.Schema({
-//   date: String,   // unique!!!   
+//   date: String,   // unique!!!
 //   events: String,
 // });
 
@@ -51,6 +55,3 @@ var Users = mongoose.model('Users', userSchema);
 // module.exports.selectAllUsers = selectAllUsers;
 module.exports = Users;
 // module.exports = Event;
-
-
-

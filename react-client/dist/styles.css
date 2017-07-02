@@ -49,12 +49,18 @@ tr, td {
 .submitInfo {
   margin-left: 60px;
 } 
-.basicInfo {
-  width: 500px;
+
+#logo {
+  width: 300px;
+  font-weight: bold;   
 }
+
 #myEventClick { 
-  margin-left: 200px;
-  font-size: 20px;
+  font-size: 25px;
+}
+
+#clientInfo{
+  width: 500px;
 }
 
 #length{
@@ -75,51 +81,30 @@ tr, td {
   transition-duration: 5s;
   transition-delay: 5s;
 }
-
 .eachEvent{
   display:inline-block;
   margin-left:40px;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 5px;
 }
-
-/*      .eventHandler {
-  color:black;
-  width: 250px;
-  height:350px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: white;
-}
-*/
-
-
 #eachEventComponent {
   overflow: hidden;
   margin-left: 30px;
 }
-
 .eventImages {
   width: 250px;
-  /*border: 1px solid black;*/
-  /*height: 250px;*/
 }
 .eventSmallDes{
-  /*width: 250px;*/
   background-color: white;
   height: 130px;
-  /*border: 1px solid black;*/
   padding:10px;
+  margin-bottom: 20px;
 }
-
 .eventTitle{
-  /*color:black;*/
   color: #D91463;
   margin-bottom: 10px;
 }
-/*.eventTitle:hover{
-  color: #D91463;
-}*/
 .eventVenueName{
   margin-top: 0px
   color: grey;
@@ -136,12 +121,10 @@ tr, td {
   color: #656565;
 }
 
-#logo {
-  font-weight: bold;   
-}
 #descriptionPage{
   background-color: white;
   color: black;
+  margin-bottom: 0px;
 }
 
 #wrapUpTwoSection{
@@ -166,16 +149,13 @@ tr, td {
   height: auto;
   margin-bottom: 40px;
 }
-
 #desTitle{
   font-weight: bold;
   color:black;
 }
-
 #map{
   margin-bottom: 60px;
 }
-
 #addMylistButton{
   padding: 15px;
   background-color: #D91463;
@@ -185,11 +165,9 @@ tr, td {
   -moz-transition:all .35s;
   transition:all .35s;
 }
-
 #addMylistButton:hover {
   background-color: black;
 }
-
 #deleteButton{
   padding: 15px;
   background-color: black;
@@ -198,20 +176,17 @@ tr, td {
   -moz-transition:all .35s;
   transition:all .35s;
 }
-
 #deleteButton:hover {
   background-color: #D91463;
 }
-
 #myEventsList{
   background-color: #C2C2C3;
   color: black;
 }
-
 #myEventListUserNameDiv{
+  margin-top: 0px;
   background-color: #FEDD08;
 }
-
 #myEventUserName{
   padding: 20px;
   font-weight: bold;
@@ -219,36 +194,30 @@ tr, td {
   margin-left: 50px;
   text-align: left;
 }
-
 .myEventsListInfo {
   float: left;
   margin-left: 40px;
   margin-top: 40px;
   margin-bottom: 30px;
-  /*border: 3px bold black;*/
   border-radius: 10px;
   background-color: white;
 }
-
 .myEventListDeleteButtonDiv{
-  /*border: 3px solid black;*/
   margin-top: 50px;
   margin-left: 40px;
+  margin-bottom: 50px;
   float: left;
 }
-
 .myEventList{
   width: 800px;
   padding :15px;
   text-align: left;
 }
-
 #myEventSavedTitle{
   font-weight: bold;
   color: #D91463;
   margin-bottom: 20px;
 }
-
 .emptyEvents{
   height: 600px;
   text-align: left;

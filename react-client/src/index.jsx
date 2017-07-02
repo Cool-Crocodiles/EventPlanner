@@ -7,12 +7,6 @@ import Events from './components/EventResultPage/Events.jsx';
 import MyEvents from './components/MyListPage/MyEvents.jsx';
 import EventDescriptionPage from './components/EventDescriptionPage/EventDescriptionPage.jsx';
 
-// index.js is the top component 
-// top Component 
-// 1. landing page _ submit componemnt 
-// 2. result page 
-// 3. description page 
-// 4. mylist page 
 
 
 class App extends React.Component {
@@ -26,12 +20,11 @@ class App extends React.Component {
       allEvents: null,
       myListClick: null,
       selectedEvent: null,
-      savedEvents: []
+      savedEvents: [],
+      randomIndex: null
     }
   }
 
-
-  //Do NOT Change submitEvent() function!
   submitEvent(dateSelected, location, eventSelected, name) {
     this.setState({
       userName: name,
@@ -39,18 +32,17 @@ class App extends React.Component {
       date: dateSelected,
       eventType: eventSelected
     });
-
     $.ajax({
       url: '/events',
       type: 'POST', 
       data: { 
         eventDate: dateSelected,
         eventLocation: location,
-        eventSelected: eventSelected    //Art or Concerts or Sports 
+        eventSelected: eventSelected   
       },
       success: (data) => {
         this.setState({
-          allEvents: data              //response data is Objects in Array (coming from server)
+          allEvents: data             
         })
       },
       error: (err) => {
@@ -61,19 +53,18 @@ class App extends React.Component {
   };
 
 
-  //Do NOT Change saveEvent() function!
-  saveEvent(userName, saveDate, saveSelection) {       //saveSelections is an ARRAY (saving in the DB)
+
+  saveEvent(userName, saveDate, saveSelection) {       
     $.ajax({
       url: '/selected',
       type: 'POST', 
       data: {
-          saveDate: saveDate,                   //date entered
+          saveDate: saveDate,                   
           userName: userName,
-          saveSelection: saveSelection      //selected Events user interested and want to save in the DB
+          saveSelection: saveSelection      
             },
       success: (data) => {
-        console.log(data);                       //response is just a message: 'Successfully saved' in the DB
-
+        console.log(data);               
       },
       error: (err) => {
         console.log('err', err);
@@ -82,8 +73,7 @@ class App extends React.Component {
   };
 
 
-  //Do NOT Change showSavedEvents() function!
-  showSavedEvents(userName) {                    //retrieve list of events from DB
+  showSavedEvents(userName) {                    
     $.ajax({
       url: '/retrieve',
       type: 'POST', 
@@ -92,7 +82,7 @@ class App extends React.Component {
       },
       success: (data) => {
         this.setState({
-          savedEvents: data          //response data is all saved date-events Objects in ARRAY (coming from server)
+          savedEvents: data       
         })
       },
       error: (err) => {
@@ -101,18 +91,15 @@ class App extends React.Component {
     });
   };
 
-
-  //Do NOT Change deleteEventDates() function!
   deleteEventDates(event) {
-    console.log('deleteEventDates****************')
     $.ajax({
       url: '/delete',
       type: 'POST', 
       data: {
-          event: event            //array of Dates user wants to delete from DB
+          event: event           
             },
       success: (data) => {
-        console.log(data);                      //response is just a message: 'Successfully Deleted!'
+        console.log(data);                     
       },
       error: (err) => {
         console.log('err', err);
@@ -126,9 +113,10 @@ class App extends React.Component {
     })
   }
 
-  changeSetStateFromDescriptionPage (selectedEventObject) {
+  changeSetStateFromDescriptionPage (selectedEventObject, index) {
     this.setState({
-      selectedEvent: selectedEventObject
+      selectedEvent: selectedEventObject,
+      randomIndex: index
     })
   }
 
@@ -146,63 +134,35 @@ class App extends React.Component {
     this.showSavedEvents(this.state.userName);
   }
 
-
-//Change Render!
   render () {
-    return ( <div id= "main">
-
-
-    <div id= "landing">
-      <LandingPage searchEvents= {this.submitEvent.bind(this)}/> 
-    </div>
-
-
-
-    <div id="resultPage">
-      <div id="bar">
-        { this.state.userName !== null ? <ResultBar name={this.state.userName} location={this.state.location} data={this.state.date} eventType={this.state.eventType} allEvents={this.state.allEvents} changeMyList={this.changeSetStateFromMyListButton.bind(this)}  myEventClick={this.getDataFromDatabaseForMyEventList.bind(this)} />: null }
+    return ( 
+      <div id= "main">
+        <div id= "landing">
+          <LandingPage searchEvents= {this.submitEvent.bind(this)}/> 
+        </div>
+        <div id="resultPage">
+          <div id="bar">
+            { this.state.userName !== null ? <ResultBar name={this.state.userName} location={this.state.location} data={this.state.date} eventType={this.state.eventType} allEvents={this.state.allEvents} changeMyList={this.changeSetStateFromMyListButton.bind(this)}  myEventClick={this.getDataFromDatabaseForMyEventList.bind(this)} />: null }
+          </div>
+          <div id="events">
+            { this.state.userName !== null ? <Events events={this.state.allEvents} description= {this.changeSetStateFromDescriptionPage.bind(this)}/> : null }
+          </div>
+        </div>
+        <div id="descriptionPage">
+          <div id="bar2">
+          { this.state.selectedEvent !== null ? <ResultBar name={this.state.userName} location={this.state.location} data={this.state.date} eventType={this.state.eventType} allEvents={this.state.allEvents} changeMyList={this.changeSetStateFromMyListButton.bind(this)}  myEventClick={this.getDataFromDatabaseForMyEventList.bind(this)}/> : null }
+          </div>
+          <div id="description">
+          { this.state.selectedEvent !== null ?  <EventDescriptionPage  indexForImages = {this.state.randomIndex} eventCategory={this.state.eventType} selectedEvent={this.state.selectedEvent} addEventToMyEvents={this.dataFromDescriptionPage.bind(this)}/> : null }
+          </div>
+        </div>
+        <div id="myEventsList">
+          { this.state.myListClick !== null ? <MyEvents storeDeleteData={this.sendDeleteDataToDatabase.bind(this)} savedEventData={ this.state.savedEvents } name={this.state.userName}/> : null }
+        </div>
       </div>
-      <div id="events">
-        { this.state.userName !== null ? <Events events={this.state.allEvents} description= {this.changeSetStateFromDescriptionPage.bind(this)}/> : null }
-      </div>
-    </div>
-
-
-
-    <div id="descriptionPage">
-      <div id="bar2">
-      { this.state.selectedEvent !== null ? <ResultBar name={this.state.userName} location={this.state.location} data={this.state.date} eventType={this.state.eventType} allEvents={this.state.allEvents} changeMyList={this.changeSetStateFromMyListButton.bind(this)}  myEventClick={this.getDataFromDatabaseForMyEventList.bind(this)}/> : null }
-      </div>
-      <div id="description">
-      { this.state.selectedEvent !== null ?  <EventDescriptionPage  selectedEvent={this.state.selectedEvent} addEventToMyEvents={this.dataFromDescriptionPage.bind(this)}/> : null }
-      </div>
-    </div>
- 
-
-    <div id="myEventsList">
-      { this.state.myListClick !== null ? <MyEvents storeDeleteData={this.sendDeleteDataToDatabase.bind(this)} savedEventData={ this.state.savedEvents } name={this.state.userName}/> : null }
-    </div>
-
-    </div>
     )
   }
 }
 
 
 ReactDOM.render( <App /> , document.getElementById('app'));
-
-
-
-
-
-      // <Router> 
-      // <Switch>
-      //   <Route exact path='/' component={LandingPage}/>
-      //   </Switch>
-      // </Router> 
-
-    
-
-
-
-  

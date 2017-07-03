@@ -14,6 +14,11 @@ class EventDescriptionPage extends React.Component {
   }
 
   render () {
+    var des = this.props.selectedEvent.description; 
+    var div = document.createElement("div");
+    div.innerHTML = des; 
+    console.log('INNERHTML::', div.innerHTML);
+
     return (
       <div id="wrapUpTwoSection">
         <section id="eventDescriptionInfoText">
@@ -23,7 +28,7 @@ class EventDescriptionPage extends React.Component {
             { this.props.eventCategory === "Sports" ? <img id="eventImage" src= {images.sports[this.props.indexForImages]} /> : null} <br/>
             { this.props.eventCategory === "" ? <img id="eventImage" src= {images.sports[this.props.indexForImages]} /> : null} <br/>
           <div className="selectedData"> 
-            <b>Description: </b>{this.props.selectedEvent.description}<br/>
+            <b>Description: </b>{ this.props.selectedEvent.description }<br/>
           </div>
           <div className="selectedData"> 
             <b>Find Tickets: </b>

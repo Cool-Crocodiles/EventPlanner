@@ -145,7 +145,7 @@ class App extends React.Component {
             { this.state.userName !== null ? <ResultBar name={this.state.userName} location={this.state.location} data={this.state.date} eventType={this.state.eventType} allEvents={this.state.allEvents} changeMyList={this.changeSetStateFromMyListButton.bind(this)}  myEventClick={this.getDataFromDatabaseForMyEventList.bind(this)} />: null }
           </div>
           <div id="events">
-            { this.state.userName !== null ? <Events events={this.state.allEvents} description= {this.changeSetStateFromDescriptionPage.bind(this)}/> : null }
+            { this.state.userName !== null ? <Events eventType={this.state.eventType} events={this.state.allEvents} description= {this.changeSetStateFromDescriptionPage.bind(this)}/> : null }
           </div>
         </div>
         <div id="descriptionPage">

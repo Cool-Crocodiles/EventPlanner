@@ -12,11 +12,11 @@ import EventDescriptionPage from './components/EventDescriptionPage/EventDescrip
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       userName: null,
       location: null,
       date: null,
-      eventType: null, 
+      eventType: null,
       allEvents: null,
       myListClick: null,
       selectedEvent: null,
@@ -34,15 +34,15 @@ class App extends React.Component {
     });
     $.ajax({
       url: '/events',
-      type: 'POST', 
-      data: { 
+      type: 'POST',
+      data: {
         eventDate: dateSelected,
         eventLocation: location,
-        eventSelected: eventSelected   
+        eventSelected: eventSelected
       },
       success: (data) => {
         this.setState({
-          allEvents: data             
+          allEvents: data
         })
       },
       error: (err) => {
@@ -54,17 +54,17 @@ class App extends React.Component {
 
 
 
-  saveEvent(userName, saveDate, saveSelection) {       
+  saveEvent(userName, saveDate, saveSelection) {
     $.ajax({
       url: '/selected',
-      type: 'POST', 
+      type: 'POST',
       data: {
-          saveDate: saveDate,                   
+          saveDate: saveDate,
           userName: userName,
-          saveSelection: saveSelection      
+          saveSelection: saveSelection
             },
       success: (data) => {
-        console.log(data);               
+        console.log(data);
       },
       error: (err) => {
         console.log('err', err);
@@ -73,16 +73,16 @@ class App extends React.Component {
   };
 
 
-  showSavedEvents(userName) {                    
+  showSavedEvents(userName) {
     $.ajax({
       url: '/retrieve',
-      type: 'POST', 
+      type: 'POST',
       data: {
         userName: userName
       },
       success: (data) => {
         this.setState({
-          savedEvents: data       
+          savedEvents: data
         })
       },
       error: (err) => {
@@ -94,12 +94,12 @@ class App extends React.Component {
   deleteEventDates(event) {
     $.ajax({
       url: '/delete',
-      type: 'POST', 
+      type: 'POST',
       data: {
-          event: event           
+          event: event
             },
       success: (data) => {
-        console.log(data);                     
+        console.log(data);
       },
       error: (err) => {
         console.log('err', err);
@@ -121,7 +121,7 @@ class App extends React.Component {
   }
 
   dataFromDescriptionPage (data) {
-    this.saveEvent(this.state.userName, this.state.date, data); 
+    this.saveEvent(this.state.userName, this.state.date, data);
   }
 
   getDataFromDatabaseForMyEventList(){
@@ -135,10 +135,10 @@ class App extends React.Component {
   }
 
   render () {
-    return ( 
+    return (
       <div id= "main">
         <div id= "landing">
-          <LandingPage searchEvents= {this.submitEvent.bind(this)}/> 
+          <LandingPage searchEvents= {this.submitEvent.bind(this)}/>
         </div>
         <div id="resultPage">
           <div id="bar">

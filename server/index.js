@@ -3,23 +3,14 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var helper = require('./dbHelper.js');
 
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// var items = require('../database-mysql');
-// var items = require('../database-mongo');
-
 var app = express();
 
-// UNCOMMENT FOR REACT
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser());
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
+
 var month;
 app.post('/events', function(req, res) {
   month = '';
-  console.log("****************req.body:  ", req.body);
-  console.log("Post request Got !!! ");
   switch (req.body.eventDate.slice(0, 2)) {
     case '01':
         month = "January";
@@ -60,20 +51,15 @@ app.post('/events', function(req, res) {
   }
 
   var day = req.body.eventDate.slice(3);
-  console.log("**********day ", day);
-  console.log("**********month ", month);
-  console.log("******** %%%my url: ", `http://api.eventful.com/json/events/search?app_key=HXWRVg4cwThzKRdQ&q=${req.body.eventSelected}&l=${req.body.eventLocation}&when=${month}+${day}`);
 
   var options = {
     url: `http://api.eventful.com/json/events/search?app_key=HXWRVg4cwThzKRdQ&q=${req.body.eventSelected}&l=${req.body.eventLocation}&when=${month}+${day}`,
     method: 'GET'
 
-      //http://api.eventful.com/json/events/search?app_key=HXWRVg4cwThzKRdQ&q=concerts&l=las+vegas&when=July+4
   }
   request(options, function(err, response, body){
 
     if(JSON.parse(body).events) {
-      console.log("******* API response.body", JSON.parse(body).events.event);
       res.send(JSON.parse(body).events.event);
     } else res.send('Wrong Entry!');
   });
@@ -82,19 +68,15 @@ app.post('/events', function(req, res) {
 
 
 app.post('/selected', function(req, res) {
-  console.log("**************** /selected req.body.userName:  ", req.body.userName);
-  // res.send('Got /selected request');
   helper.saveEvent(req, res);
 });
 
 
 app.post('/retrieve', function(req, res) {
-  console.log("****************req.body:  ", req.body);
   helper.dbLookup(req, res);
 });
 
 app.post('/delete', function(req, res) {
-  console.log("********* /delete : ", req.body);
   helper.deleteEvent(req, res);
 
 });

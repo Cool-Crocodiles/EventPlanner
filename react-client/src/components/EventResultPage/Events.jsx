@@ -12,8 +12,8 @@ class Events extends React.Component {
   }
 
   eventDescriptionPage(e) {
-    var selectedTitle = e.target.title; 
-    var events = this.props.events; 
+    var selectedTitle = e.target.title;
+    var events = this.props.events;
     for ( var i = 0; i < events.length; i++) {
       if( events[i].title === selectedTitle ) {
         this.setState({
@@ -22,7 +22,7 @@ class Events extends React.Component {
         },  this.sendSelectedEventToTopComponent )
       }
     }
-   this.sendSelectedEventToTopComponent(); 
+   this.sendSelectedEventToTopComponent();
   }
 
   sendSelectedEventToTopComponent() {
@@ -32,7 +32,7 @@ class Events extends React.Component {
   render () {
     return (
       <div className ="allEvents">
-        {this.props.events === null ? null : 
+        {this.props.events === null ? <h2 className="emptyEvents">There are no events</h2> :
           this.props.events.map((event, index) =>  {
             return (
               <div key={index} className="eachEvent">
@@ -44,7 +44,7 @@ class Events extends React.Component {
                     { event.image === null && this.props.eventType === "Concerts" ? <img src="http://s4.evcdn.com/images/block250/I0-001/024/825/663-1.jpeg_/mj-live-michael-jackson-tribute-concer-63.jpeg"/> : null  }
                     </div>
                     <div className="eventSmallDes">
-                      { event.title !== null ? <a id="resultTitle" onClick={this.eventDescriptionPage.bind(this)} href="#descriptionPage" className="eventTitle" title={event.title}>{event.title.slice(0,18)}</a> : null } <br/> 
+                      { event.title !== null ? <a id="resultTitle" onClick={this.eventDescriptionPage.bind(this)} href="#descriptionPage" className="eventTitle" title={event.title}>{event.title.slice(0,18)}</a> : null } <br/>
                       <a id="resultTitle" onClick={this.eventDescriptionPage.bind(this)} href="#descriptionPage" className="eventTitle" title={event.title}>{event.title.slice(18,38)}</a><br/>
                       <a id="resultTitle" onClick={this.eventDescriptionPage.bind(this)} href="#descriptionPage" className="eventTitle" title={event.title}>{event.title.slice(38,58)}</a><br/>
                       <span className="eventVenueName">{event.venue_name.slice(0,26)}</span> <br/>
@@ -59,6 +59,5 @@ class Events extends React.Component {
     )
   }
 }
-
 
 export default Events;
